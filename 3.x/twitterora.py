@@ -1,5 +1,6 @@
 from TwitterAPI import TwitterAPI
 import cx_Oracle
+import sys
 
 # Twitter Credentials
 CONSUMER_KEY = 'Vn6dl2pDjDHsn9sELnNztv44K'
@@ -21,6 +22,7 @@ SEARCH_TERM = 'Dhoni'
 r = api.request('search/tweets', {'q': SEARCH_TERM})
 
 for item in r:
+    print(sys.stdout.encoding)
     print(item['id'],
           item['created_at'][-4:] + item['created_at'][3:19],
           item['user']['id'],
@@ -40,11 +42,13 @@ for item in r:
                    time=(item['created_at'][-4:] + item['created_at'][3:19]),
                    user_id=item['user']['id'],
                    #user_name=str.encode(item['user']['name'], encoding='ascii', errors='ignore'),
+                   #user_name=ascii(item['user']['name']),
                    user_name=ascii(item['user']['name']),
                    #user_screen_name=str.encode(item['user']['screen_name'], encoding='ascii', errors='ignore'),
                    user_screen_name=ascii(item['user']['screen_name']),
                    #user_created_at=(item['user']['created_at'][-4:] + item['user']['created_at'][-3:19]),
-                   #text=str.encode(item['text'], encoding='ascii', errors='ignore')
+                   #text=str.encode(item['text'], encoding='utf-8', errors='replace')
+                   #text=item['text'].encode(sys.stdout.encoding, errors='replace')
                    text=ascii(item['text'])
                    )
     connection.commit()
