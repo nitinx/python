@@ -1,13 +1,17 @@
-import cx_Oracle
+from nxoracle import NXOracle
+'''
+# Open KEY files
+with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\oracle.key') as key_file_oracle:
+    key_oracle = json.load(key_file_oracle)
 
-# default values
-USER = "infa"
-PASSWORD = "pass"
-CONNECT_STRING = "localhost"
+connection = cx_Oracle.connect(key_oracle[0]['USER'],
+                               key_oracle[0]['PASSWORD'],
+                               key_oracle[0]['CONNECT_STRING'])
+'''
 
-connection = cx_Oracle.connect(USER, PASSWORD, CONNECT_STRING)
-
+connection = NXOracle().db_login()
 cursor = connection.cursor()
+
 cursor.execute("""
 	    SELECT customer_id, cust_first_name, cust_last_name
 	    FROM demo_customers

@@ -1,22 +1,26 @@
+# 23 Sep 2017 | Twitter Client/Integration
+
 from TwitterAPI import TwitterAPI
 import cx_Oracle
 import sys
+import json
 
-# Twitter Credentials
-CONSUMER_KEY = 'Vn6dl2pDjDHsn9sELnNztv44K'
-CONSUMER_SECRET = 'TKsAzjqhtsTDERmAMZZRFzT6YlVfmb4aYc6Dj9FJGpF3aInHbP'
-ACCESS_TOKEN_KEY = '18508737-OehQWEqOWjqac21ochmM908YGiydBHe4E1HF0unZ1'
-ACCESS_TOKEN_SECRET = 'EsUfX8hbPsDeMQhJbrRY1wlW1rjI2tlqik9qTfFTxflAi'
+# Open KEY files
+with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\twitter.key') as key_file_twitter:
+    key_twitter = json.load(key_file_twitter)
 
-# Oracle Connection Values
-USER = "infa"
-PASSWORD = "pass"
-CONNECT_STRING = "localhost"
+with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\oracle.key') as key_file_oracle:
+    key_oracle = json.load(key_file_oracle)
 
-connection = cx_Oracle.connect(USER, PASSWORD, CONNECT_STRING)
+connection = cx_Oracle.connect(key_oracle[0]['USER'],
+                               key_oracle[0]['PASSWORD'],
+                               key_oracle[0]['CONNECT_STRING'])
 cursor = connection.cursor()
 
-api = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
+api = TwitterAPI(key_twitter[0]['CONSUMER_KEY'],
+                 key_twitter[0]['CONSUMER_SECRET'],
+                 key_twitter[0]['ACCESS_TOKEN_KEY'],
+                 key_twitter[0]['ACCESS_TOKEN_SECRET'])
 SEARCH_TERM = 'Dhoni'
 
 r = api.request('search/tweets', {'q': SEARCH_TERM})

@@ -1,14 +1,8 @@
-from TwitterAPI import TwitterAPI
-import json
+# 05 Oct 2017 | Twitter Template using NXAuth
 
-# Open KEY files
-with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\twitter.key') as key_file_twitter:
-    key_twitter = json.load(key_file_twitter)
+from nxauth import NXAuth
 
-api = TwitterAPI(key_twitter[0]['CONSUMER_KEY'],
-                 key_twitter[0]['CONSUMER_SECRET'],
-                 key_twitter[0]['ACCESS_TOKEN_KEY'],
-                 key_twitter[0]['ACCESS_TOKEN_SECRET'])
+api = NXAuth().auth_twitter()
 
 SEARCH_TERM = 'Sindhu'
 
