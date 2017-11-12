@@ -1,3 +1,5 @@
+# 09 Nov 2017 | AWS S3 Integration
+
 import boto3
 
 # Let's use Amazon S3
