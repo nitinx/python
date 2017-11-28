@@ -1,14 +1,25 @@
 # 27 Nov 2017 | TMDb API
 
-import boto3
+import tmdbsimple as tmdb
+tmdb.API_KEY = '8bb773d788328379a26c865c78d3c855'
 
-# Let's use Amazon S3
-s3 = boto3.resource('s3')
+#Method: Search
+search = tmdb.Search()
+response = search.movie(query='2017', year=2017)
+c = 1
+for s in search.results:
+    print(c, s['id'], s['release_date'], s['popularity'], s['title'])
+    c = c + 1
 
-# Print out bucket names
-for bucket in s3.buckets.all():
-    print(bucket.name)
+#Method: Search
+search = tmdb.Discover()
+response = search.movie(primary_release_year=2017)
+c = 1
+for s in search.results:
+    print(c, s['id'], s['release_date'], s['vote_average'], s['popularity'], s['title'])
+    c = c + 1
 
-# Upload a new file
-data = open('nxoracle.py', 'rb')
-s3.Bucket('nitinx').put_object(Key='nxoracle.py', Body=data)
+#Method: Movies
+#movie = tmdb.Movies(366003)
+#response = movie.info()
+#print(movie.title)
