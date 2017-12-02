@@ -17,6 +17,14 @@ class NXAuth:
         return api
 
 
+    def key_zomato(self):
+        # Open KEY files
+        with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\zomato.key') as key_file_zomato:
+            key = json.load(key_file_zomato)
+
+        return key
+
+
     def auth_instagram(self):
         # Open KEY files
         with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\instagram.key') as key_file_instagram:
