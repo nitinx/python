@@ -24,5 +24,4 @@ class NXOracle:
                                        key_oracle[0]['CONNECT_STRING'])
 
         print("Oracle DB: Logged in")
-
         return connection
