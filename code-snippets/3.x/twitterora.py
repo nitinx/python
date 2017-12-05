@@ -6,10 +6,10 @@ import sys
 import json
 
 # Open KEY files
-with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\twitter.key') as key_file_twitter:
+with open('c:\\DEV\\GitHub\\python\\keys\\twitter.key') as key_file_twitter:
     key_twitter = json.load(key_file_twitter)
 
-with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\oracle.key') as key_file_oracle:
+with open('c:\\DEV\\GitHub\\python\\keys\\oracle.key') as key_file_oracle:
     key_oracle = json.load(key_file_oracle)
 
 connection = cx_Oracle.connect(key_oracle[0]['USER'],

@@ -2,15 +2,16 @@
 
 import requests
 import json
-from nxauth import NXAuth
-from nxoracle import NXOracle
+from nxcommon import NXKey
+from nxcommon import NXOracle
 
 base_url = "https://developers.zomato.com/api/v2.1"
 connection = NXOracle().db_login()
 cursor = connection.cursor()
 
+
 def get_user_key():
-    return NXAuth().key_zomato()[0]['API_KEY']
+    return NXKey().key_zomato()[0]['API_KEY']
 
 
 def get_categories(headers):
@@ -98,9 +99,9 @@ def get_search(headers, query, entity_id, entity_type):
                             + '&sort=rating&order=desc', params='', headers=headers).json()
 
     #print(response)
-    results_found = response['results_found']
-    results_start = response['results_start']
-    results_shown = response['results_shown']
+    #results_found = response['results_found']
+    #results_start = response['results_start']
+    #results_shown = response['results_shown']
 
     for restaurant in range(len(response['restaurants'])):
         print(str(response['restaurants'][restaurant]['restaurant']['id'])

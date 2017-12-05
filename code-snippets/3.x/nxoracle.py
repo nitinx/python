@@ -3,6 +3,7 @@
 import cx_Oracle
 import json
 
+
 class NXOracle:
 
     def db_start(self):
@@ -16,7 +17,7 @@ class NXOracle:
     def db_login(self):
         print("Oracle DB: Logging in...")
 
-        with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\oracle.key') as key_file_oracle:
+        with open('c:\\DEV\\GitHub\\python\\keys\\oracle.key') as key_file_oracle:
             key_oracle = json.load(key_file_oracle)
 
         connection = cx_Oracle.connect(key_oracle[0]['USER'],

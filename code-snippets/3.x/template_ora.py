@@ -1,4 +1,4 @@
-from nxoracle import NXOracle
+from nxcommon import NXOracle
 '''
 # Open KEY files
 with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\oracle.key') as key_file_oracle:
