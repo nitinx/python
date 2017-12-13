@@ -10,25 +10,25 @@ class NXKey:
 
     def key_twitter(self):
         # Open KEY files
-        with open('c:\\DEV\\GitHub\\python\\keys\\twitter.key') as key_file:
+        with open('e:\\GitHub\\python\\keys\\twitter.key') as key_file:
             key = json.load(key_file)
         return key
 
     def key_zomato(self):
         # Open KEY files
-        with open('c:\\DEV\\GitHub\\python\\keys\\zomato.key') as key_file:
+        with open('e:\\GitHub\\python\\keys\\zomato.key') as key_file:
             key = json.load(key_file)
         return key
 
     def key_instagram(self):
         # Open KEY files
-        with open('c:\\DEV\\GitHub\\python\\keys\\instagram.key') as key_file:
+        with open('e:\\GitHub\\python\\keys\\instagram.key') as key_file:
             key = json.load(key_file)
         return key
 
     def key_facebook(self):
         # Open KEY files
-        with open('c:\\DEV\\GitHub\\python\\keys\\facebook.key') as key_file:
+        with open('e:\\GitHub\\python\\keys\\facebook.key') as key_file:
             key = json.load(key_file)
         return key
 
@@ -46,7 +46,7 @@ class NXOracle:
     def db_login(self):
         print("Oracle DB: Logging in...")
 
-        with open('c:\\DEV\\GitHub\\python\\keys\\oracle.key') as key_file_oracle:
+        with open('e:\\GitHub\\python\\keys\\oracle.key') as key_file_oracle:
             key_oracle = json.load(key_file_oracle)
 
         connection = cx_Oracle.connect(key_oracle[0]['USER'],
