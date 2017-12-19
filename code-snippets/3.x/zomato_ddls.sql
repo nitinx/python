@@ -2,6 +2,7 @@
 drop table zmt_categories;
 drop table zmt_cities;
 drop table zmt_collections;
+drop table zmt_collections_ext;
 drop table zmt_cuisines;
 drop table zmt_establishments;
 drop table zmt_locations;
@@ -29,6 +30,7 @@ insert_dt date
 
 create table zmt_collections
 (
+period integer not null,
 city_id integer not null,
 collection_id integer not null,
 title varchar2(200),
@@ -36,6 +38,16 @@ description varchar2(500),
 url varchar2(250),
 share_url varchar2(100),
 restaurant_count integer,
+insert_dt date
+);
+
+create table zmt_collections_ext
+(
+period integer not null,
+city_id integer not null,
+collection_id integer not null,
+restaurant_id integer not null,
+search_parameters varchar2(200),
 insert_dt date
 );
 
@@ -91,6 +103,7 @@ loc_locality varchar2(50),
 loc_city_id integer,
 loc_latitude varchar2(20),
 loc_longitude varchar2(20),
+search_parameters varchar2(200),
 insert_dt date
 );
 
@@ -111,6 +124,7 @@ insert_dt date
 select * from zmt_categories;
 select * from zmt_cities;
 select * from zmt_collections;
+select * from zmt_collections_ext;
 select * from zmt_cuisines;
 select * from zmt_establishments;
 select * from zmt_locations;
