@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PROJECT_HOME=/Users/praveen/nitin/new
+PYTHONPATH=$PROJECT_HOME python $PROJECT_HOME/application.py

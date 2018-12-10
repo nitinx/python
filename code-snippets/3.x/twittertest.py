@@ -2,7 +2,7 @@ from TwitterAPI import TwitterAPI
 import json
 
 # Open KEY files
-with open('c:\\DEV\\GitHub\\python\\3.x\\keys\\twitter.key') as key_file_twitter:
+with open('e:\\GitHub\\python\\keys\\twitter.key') as key_file_twitter:
     key_twitter = json.load(key_file_twitter)
 
 api = TwitterAPI(key_twitter[0]['CONSUMER_KEY'],
