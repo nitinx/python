@@ -1,19 +1,19 @@
-#from __future__ import absolute_import, print_function
-
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 import json
 
 
-# Open KEY files
-with open('e:\\GitHub\\python\\keys\\twitter.key') as key_file_twitter:
+# Load Credentials
+with open('e:\\GitHub\\python\\keys\\twitter.key', 'r') as key_file_twitter:
     key_twitter = json.load(key_file_twitter)
 
 consumer_key = key_twitter[0]['CONSUMER_KEY']
 consumer_secret = key_twitter[0]['CONSUMER_SECRET']
 access_token = key_twitter[0]['ACCESS_TOKEN_KEY']
 access_token_secret = key_twitter[0]['ACCESS_TOKEN_SECRET']
+
+# Instantiate an object
 
 
 class StdOutListener(StreamListener):
