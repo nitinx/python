@@ -50,3 +50,5 @@ Temporary Items
 *.key
 *.gz
 
+*.csv
+*.zip
